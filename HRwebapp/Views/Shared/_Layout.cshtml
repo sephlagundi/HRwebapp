@@ -28,6 +28,13 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Role" asp-action="Index">Role</a>
                         </li>
+                        @if (_signInManager.IsSignedIn(User) && (User.IsInRole("Administrator")))
+                        {
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="AdminTest" asp-action="Index">Admin View</a>
+                            </li>
+                        }
                     </ul>
                 </div>
                 <partial name="_LoginPartial"/>
